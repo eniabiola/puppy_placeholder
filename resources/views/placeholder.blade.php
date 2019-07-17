@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <style type="text/css">
-	.reframe {
+.reframe {
   height: 100px;
   width: 150px;
   overflow: hidden;

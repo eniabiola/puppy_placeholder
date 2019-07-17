@@ -18,10 +18,12 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/index', 'ImagePlaceHolderController@index')->name('index');
+Route::get('/indexShow/{slug}', 'ImagePlaceHolderController@indexShow')->name('indexShow');
 
-Route::resource('/placeholder', 'placeholderController');
+Route::resource('/placeholder', 'placeholderController')->middleware('auth');
 
 Route::get('/{width?}/{height?}', [
 		'as' => 'images.show',
-		'uses' => 'PlaceHolderController@show'
+		'uses' => 'ImagePlaceHolderController@show'
 ])->where(['width' => '[0-9]+', 'height' => '[0-9]+']);;
